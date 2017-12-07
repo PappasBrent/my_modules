@@ -17,8 +17,15 @@ class BinaryTree:
         self.left = left
         self.right = right
 
-    def __str__(self):
-        return str(self.val)
+    def __str__(self, indent_level=0):
+        '''
+        Pretty printing for entire trees
+        '''
+        print("{0}{1}".format('-' * indent_level, self.val))
+        if self.left:
+            self.left.print_tree(indent_level + 4)
+        if self.right:
+            self.right.print_tree(indent_level + 4)
 
     def total(self):
         '''
@@ -29,6 +36,16 @@ class BinaryTree:
             return self.val
         else:
             return self.val + self.left.total() + self.right.total()
+
+    def print_tree(self, indent_level=0):
+        '''
+        Simple pretty printing for entire trees
+        '''
+        print("{0}{1}".format('-' * indent_level, self.val))
+        if self.left:
+            self.left.print_tree(indent_level+4)
+        if self.right:
+            self.right.print_tree(indent_level+4)
 
 
 class Tree:
@@ -115,7 +132,7 @@ class Tree:
         Searches a tree for a particular node within it
         '''
         # Print for clarification
-        print("Checking", self.val, "for node", (parent, child_val))
+        # print("Checking", self.val, "for node", (parent, child_val))
         # If the tree's value matches that of the parent,
         # each of its children are checked to be the node
         if self.val == parent:
@@ -144,31 +161,35 @@ class Tree:
             else:
                 return False
 
+    def print_tree(self, indent_level=0):
+        '''
+        Simple pretty printing for entire trees
+        '''
+        print("{0}{1}".format('-' * indent_level, self.val))
+        for child in self.children:
+            child.print_tree(indent_level + 4)
+
 
 def main():
     '''
     Executes script
     '''
     binary_tree = BinaryTree(3, BinaryTree(2), BinaryTree(5))
-    print('Binary Tree:', binary_tree.total())
+    print('Binary Tree: {}'.format(binary_tree.total()))
+    binary_tree.print_tree()
 
     tree = Tree(1)
-    # print('Tree:', tree.total())
     tree.add_node(1, 2)
-    # print('Tree:', tree.total())
     tree.add_node(1, 4)
-    # print('Tree:', tree.total())
-
     tree.add_node(2, 3)
     tree.add_node(2, 5)
     tree.add_node(4, 6)
     tree.add_node(6, 7)
-    # tree.add_node(7, 8)
-    # tree.add_node(7, 9)
-
-    print(tree.total())
-
-    print(tree.check_for_node(7, 9))
+    tree.add_node(7, 8)
+    tree.add_node(7, 9)
+    print('\nRegular Tree: {}'.format(tree.total()))
+    tree.print_tree()
+    print('Node (7, 9) in tree: {}'.format(tree.check_for_node(7, 9)))
 
 
 if __name__ == "__main__":
