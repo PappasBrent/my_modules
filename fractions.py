@@ -45,7 +45,10 @@ class Fraction:
     def __eq__(self, other_fraction):
         self.simplify()
         other_fraction.simplify()
-        return True if self.num == other_fraction.num and self.den == other_fraction.den else False
+        if self.num == other_fraction.num and self.den == other_fraction.den:
+            return True
+        else:
+            return False
 
     def simplify(self):
         '''

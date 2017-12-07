@@ -64,7 +64,8 @@ class PaintApp:
         Draws a line that follows the user's cursor
         '''
         self.canvas.create_line(self.prev.x, self.prev.y,
-                                event.x, event.y, width=5, fill=self.color.get())
+                                event.x, event.y, width=5,
+                                fill=self.color.get())
         self.prev = event
 
     def clear_canvas(self):

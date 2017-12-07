@@ -13,11 +13,12 @@ class SpeakTime:
     def __init__(self, **kwargs):
         self.vals = kwargs
 
-        self._words_1_12 = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
-                            6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
-                            11: "eleven", 12: "twelve"}
-        self._words_10_19 = {10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen",
-                             15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen",
+        self._words_1_12 = {1: "one", 2: "two", 3: "three", 4: "four",
+                            5: "five", 6: "six", 7: "seven", 8: "eight",
+                            9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
+        self._words_10_19 = {10: "ten", 11: "eleven", 12: "twelve",
+                             13: "thirteen", 14: "fourteen", 15: "fifteen",
+                             16: "sixteen", 17: "seventeen", 18: "eighteen",
                              19: "nineteen"}
         self._words_tens = {
             1: "ten", 2: "twenty", 3: "thirty", 4: "forty", 5: "fifty",
@@ -73,7 +74,8 @@ class SpeakTime:
                                        self._words_1_12.get(ones_digit)))
 
     def __str__(self):
-        return "{} {} in the {}".format(self._hour_word, self._minute_word, self.ampm)
+        return "{} {} in the {}".format(self._hour_word,
+                                        self._minute_word, self.ampm)
 
 
 def main():

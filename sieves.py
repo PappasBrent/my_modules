@@ -3,10 +3,12 @@
 Module containing different types of sieves
 '''
 
+
 def get_primes_sieve_eratosthenes(num):
     '''
     Returns a list of all prime numbers from 0 to num (inclusive)
-    Info: https://iamrafiul.wordpress.com/2013/04/28/sieve-of-eratosthenes-in-python/
+    Info:
+    https://iamrafiul.wordpress.com/2013/04/28/sieve-of-eratosthenes-in-python/
     '''
     # List of composite numbers
     composites = []
@@ -27,11 +29,13 @@ def get_primes_sieve_eratosthenes(num):
     # Returns the list of primes
     return primes
 
+
 def main():
     '''
     Executes script
     '''
     print(*get_primes_sieve_eratosthenes(10000))
+
 
 if __name__ == "__main__":
     main()

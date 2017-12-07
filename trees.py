@@ -6,10 +6,12 @@ Subtrees are referred to as nodes just for clarification,
 though the terms tree and node are really interchangeable.
 '''
 
+
 class BinaryTree:
     '''
     A tree in which each node can only have at max two children
     '''
+
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
@@ -20,7 +22,8 @@ class BinaryTree:
 
     def total(self):
         '''
-        Recursively calculates the sum of the tree's value and all of its children's values
+        Recursively calculates the sum of the tree's value
+        and all of its children's values
         '''
         if self.left is None and self.right is None:
             return self.val
@@ -32,6 +35,7 @@ class Tree:
     '''
     A tree in which each node may have any number of children
     '''
+
     def __init__(self, val, children=None):
         self.val = val
         # This step is neccesary to ensure that an empty list is the
@@ -46,7 +50,8 @@ class Tree:
 
     def total(self):
         '''
-        Recursively calculates the sum of the tree's value and all of its children's values
+        Recursively calculates the sum of the tree's value
+        and all of its children's values
         '''
         result = self.val
         if not self.children:
@@ -77,12 +82,14 @@ class Tree:
 
     def add_node(self, parent, child_val):
         '''
-        Adds a node to the parent tree. Will search for the first node in the parent tree
-        with the value parent and then adds a new node with value child_val to its children
+        Adds a node to the parent tree. Will search for the
+        first node in the parent tree with the value parent
+        and then adds a new node with value child_val
+        to its children
         '''
         if self.val == parent:
             # Very handy print statement for clarification
-            #print("Adding node", child, "to node", self.val)
+            # print("Adding node", child, "to node", self.val)
             self.children.append(Tree(child_val))
         else:
             for child in self.children:
@@ -90,8 +97,9 @@ class Tree:
 
     def remove_node(self, parent, child_val):
         '''
-        Removes a tree from the parent node.  Will search for the first node in the parent tree
-        with the value parent and then removes node with value child from its children
+        Removes a tree from the parent node.  Will search for the first node
+        in the parent tree with the value parent and then removes node
+        with value child from its children
         '''
         if self.val == parent:
             # print("Removing node", child, "from node", self.val)
@@ -130,7 +138,8 @@ class Tree:
                     if present:
                         return present
                 # If none of the tree's children are the parent of the
-                # target node, then we can conclude that this node is a dead-end
+                # target node, then we can conclude that
+                # this node is a dead-end
                 return False
             else:
                 return False
@@ -149,7 +158,6 @@ def main():
     # print('Tree:', tree.total())
     tree.add_node(1, 4)
     # print('Tree:', tree.total())
-
 
     tree.add_node(2, 3)
     tree.add_node(2, 5)
