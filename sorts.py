@@ -4,45 +4,70 @@ A module containing examples of different types of sorting methods
 '''
 
 
+def swap(arr, i, j):
+    '''
+    Swaps two elements in an array at the given indices
+    '''
+    temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+
+
+def bubble_sort(arr):
+    '''
+    Bubble sort
+    '''
+
+    is_sorted = False
+    last_unsorted = len(arr)
+
+    while not is_sorted:
+        is_sorted = True
+        for i in range(last_unsorted - 1):
+            if arr[i + 1] < arr[i]:
+                swap(arr, i, i + 1)
+                is_sorted = False
+        last_unsorted -= 1
+
+
+def selection_sort(arr):
+    '''
+    Selection sort
+    '''
+
+    for i in range(len(arr) - 1):
+        min_index = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        swap(arr, i, min_index)
+
+
 def insertion_sort(arr):
     '''
     Insertion sort
+    Animated example of the sort in action:
+    https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif
     '''
 
-    # Begins the checking at the beginning of the array
     for i in range(1, len(arr)):
-        # Stores the current value at i if it will be needed
-        start = arr[i]
-        # Sets the value of j to one less than i. This is so that
-        # j will reference the item at index i - 1 (the item before i)
-        j = i - 1
-        # Runs while j refers directly to an item beyond the first one
-        # in the array and the item at j is bigger than the item at i
-        # (while the item before the item at i is bigger than the item at i)
-        while j >= 0 and arr[j] > start:
-            '''
-            Sets the value ahead of the item at j (the item at i)
-            to be the item at j (shifts the item at j forward in the list).
-            Note that when this finishes the item directly after the item at
-            index j will be a duplicate of the item at j, and not the value of
-            the item originally at the index i as it should be.
-            This is accounted for.
-            '''
-            arr[j + 1] = arr[j]
-            # Shift j back one place in the array, so that the item behind
-            # j gets moved foward next.
+        j = i
+        while j >= 1 and arr[j] < arr[j - 1]:
+            swap(arr, j, j - 1)
             j -= 1
-        # Accounts for the issue mentioned above
-        arr[j + 1] = start
-        # Animated example of the array in action:
-        # https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif
 
 
 def main():
     '''
     Executes script
     '''
-    pass
+    nums = [x for x in range(25, 0, -1)]
+    print(*nums)
+    bubble_sort(nums)
+    # selection_sort(nums)
+    # insertion_sort(nums)
+    print(*nums)
 
 
 if __name__ == "__main__":
