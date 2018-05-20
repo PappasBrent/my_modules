@@ -6,13 +6,12 @@ Version 1.0.0
 
 ## Table of Contents
 
-- [My_Modules](#mymodules)
+- [My_Modules](#my-modules)
     - [Table of Contents](#table-of-contents)
     - [Getting Started](#getting-started)
         - [Prerequisites](#prerequisites)
         - [Installing](#installing)
     - [Running the tests](#running-the-tests)
-    - [Deployment](#deployment)
     - [Built With](#built-with)
     - [Contributing](#contributing)
     - [Versioning](#versioning)
@@ -58,10 +57,6 @@ However, the main functions of each module do contain small tests/demos of
 their module's functionality.
 
 To run these, simply run that module by itself (preferably in a shell or IDE).
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
